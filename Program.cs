@@ -10,9 +10,33 @@ namespace NumberGuesser
 
             string userName = GetUserName();
 
-            GreetUser(userName);       
+            GreetUser(userName);
 
+            int correctNumber = 7;
 
+            bool correctAnswer = false;
+
+            Console.WriteLine("Zgadnij wylosowaną liczbę od 1 do 10");
+
+            while(correctAnswer)
+            {
+                string input = Console.ReadLine();
+
+                int guess;
+
+               bool isNumber =  int.TryParse(input, out guess);
+
+                if (!isNumber)
+                {
+                    PrintColorMessage(ConsoleColor.Yellow, "Proszę wprowadzić liczbę.");
+                    continue;
+                }
+
+                if(guess < 1 || guess > 10)
+                {
+                    PrintColorMessage(ConsoleColor.Yellow, "Proszę wprowadzić liczbę od 1 do 10.")
+                }
+            }
          
         }
 
