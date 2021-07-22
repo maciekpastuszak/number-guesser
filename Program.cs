@@ -20,7 +20,7 @@ namespace NumberGuesser
 
             Console.WriteLine("Zgadnij wylosowaną liczbę od 1 do 10");
 
-            while(correctAnswer)
+            while(!correctAnswer)
             {
                 string input = Console.ReadLine();
 
