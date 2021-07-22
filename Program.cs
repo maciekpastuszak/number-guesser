@@ -11,6 +11,8 @@ namespace NumberGuesser
             string userName = GetUserName();
 
             GreetUser(userName);       
+
+
          
         }
 
@@ -20,12 +22,14 @@ namespace NumberGuesser
             int appVersion = 1;
             string appAuthor = "Maciej Pastuszak";
 
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            string info = $"[{appName}] Wersja: 0.0.{appVersion}, Autor: {appAuthor}";
 
-            Console.WriteLine($"[{appName}] Wersja: 0.0.{appVersion}, Autor: {appAuthor}");
-
-            Console.ResetColor();
+            PrintColorMessage(ConsoleColor.Magenta, info);
+            
         }
+
+    
+
         static string GetUserName()
         {
             Console.WriteLine("Jak masz na imię?");
@@ -37,9 +41,17 @@ namespace NumberGuesser
 
         static void GreetUser (string userName)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            string greet = $"Powodzenia {userName}, odgadnij liczbę ...";
 
-            Console.WriteLine($"Powodzenia {userName}, odgadnij liczbę ...");
+            PrintColorMessage(ConsoleColor.Blue, greet);
+
+        }
+
+        static void PrintColorMessage(ConsoleColor color, string message)
+        {
+            Console.ForegroundColor = color;
+
+            Console.WriteLine(message);
 
             Console.ResetColor();
         }
