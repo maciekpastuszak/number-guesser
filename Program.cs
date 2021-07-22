@@ -12,7 +12,9 @@ namespace NumberGuesser
 
             GreetUser(userName);
 
-            int correctNumber = 7;
+            Random random = new Random();
+            
+            int correctNumber = random.Next(1,11);
 
             bool correctAnswer = false;
 
@@ -34,7 +36,22 @@ namespace NumberGuesser
 
                 if(guess < 1 || guess > 10)
                 {
-                    PrintColorMessage(ConsoleColor.Yellow, "Proszę wprowadzić liczbę od 1 do 10.")
+                    PrintColorMessage(ConsoleColor.Yellow, "Proszę wprowadzić liczbę od 1 do 10.");
+                    continue;
+                }
+
+                if(guess < correctNumber)
+                {
+                    PrintColorMessage(ConsoleColor.Red, "Błędna odpowiedż. Wylosowana liczba jest większa.");
+                }
+                else if (guess > correctNumber)
+                {
+                    PrintColorMessage(ConsoleColor.Red, "Błędna odpowiedż. Wylosowana liczba jest mniejsza.");
+                }
+                else
+                {
+                    correctAnswer = true;
+                    PrintColorMessage(ConsoleColor.Green, "Brawo! Prawidłowa odpowiedźesen.");
                 }
             }
          
